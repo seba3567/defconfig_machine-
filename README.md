@@ -5,11 +5,11 @@ HOW TO USE:
 -----------
 
 ### Unpack boot.img
-		./mkboot name.img namefolderout
+		./mkboot name.img $you_boot_umpack_folders
 
 	EXAMPLE
 		./mkboot boot.img boot
-		Unpack & decompress boot.img to boot
+		Unpack & decompress boot.img to evert
 		  kernel         : $locations
 		  ramdisk        : $locations
 		  page_size      : 2048
@@ -44,6 +44,12 @@ HOW TO USE:
         example :
         
         . extract-ikconfig kernel > evert_defconfig (evert = codename moto g6 plus
+        
+        
+        
+        si tus archivos extraidos generan un archivo llamado "zImage" se cambia por la configuracion "kernel" del comando
+        . extract-ikconfig zImage > $device_codename_defconfig
+       
 		
 		
 		
