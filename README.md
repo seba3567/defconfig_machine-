@@ -4,14 +4,14 @@ defconfig machine
 HOW TO USE:
 -----------
 
-### Unpack boot/recovery(.img) support dtb(dt.img):
+### Unpack boot.img
 		./mkboot name.img namefolderout
 
 	EXAMPLE
-		./mkboot recoveryksuamg5.img ksuamg
-		Unpack & decompress recoveryksuamg5.img to ksuamg
-		  kernel         : /home/xiaolu/work/initramfs/s4/e330s/ksuamg5/zImage
-		  ramdisk        : /home/xiaolu/work/initramfs/s4/e330s/ksuamg5/ramdisk.gz
+		./mkboot boot.img boot
+		Unpack & decompress boot.img to boot
+		  kernel         : $locations
+		  ramdisk        : $locations
 		  page_size      : 2048
 		  base_addr      : 0x00000000
 		  kernel size    : 6911360
@@ -26,9 +26,24 @@ HOW TO USE:
 		Unpack completed.
 		
 		
-		$ chmod +x extract-ikconfig
-
-        $ extract-ikconfig kernel > kernel_config (or device_defconfig)
+### Copy Scripts
+   
+        copy extra-ikconfig to $you_boot.img_umpack_folders
+        
+        
+### Generate defconfig
+        # open terminal on $you_boot_umpack_folders
+        # and set permissions
+        
+		chmod +x extract-ikconfig
+		
+        #build defconfig
+        
+        . extract-ikconfig kernel > $device_codename_defconfig 
+        
+        example :
+        
+        . extract-ikconfig kernel > evert_defconfig (evert = codename moto g6 plus
 		
 		
 		
